@@ -6,4 +6,9 @@
     <string name="btn_two">Second button</string>
     <string name="btn_three">Third button</string>
 
+    <string name="item_add">Add</string>
+    <string name="item_edit">Edit</string>
+    <string name="item_del">Delete</string>
+    <string name="item_settings">Settings</string>
+
 </resources>
