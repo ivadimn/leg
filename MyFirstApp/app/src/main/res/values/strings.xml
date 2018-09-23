@@ -11,4 +11,7 @@
     <string name="item_del">Delete</string>
     <string name="item_settings">Settings</string>
 
+    <string name="item_context1">Context item 1</string>
+    <string name="item_context2">Context item 2</string>
+
 </resources>
