@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="@string/btn_one"
+            android:onClick="onButtonClick"
             />
 
         <Button
@@ -27,13 +28,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="@string/btn_two"
+            android:onClick="onButtonClick"
             />
         <Button
             android:id="@+id/btn_three"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="@string/btn_three"/>
+            android:text="@string/btn_three"
+            android:onClick="onButtonClick"
+            />
     </LinearLayout>
 
     <FrameLayout
