@@ -40,6 +40,33 @@
             />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="32dp">
+
+        <Button
+            android:id="@+id/btn_alert_dilaog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/alert_dialog"
+            android:onClick="onButtonClick"
+            />
+
+        <Button
+            android:id="@+id/btn_fragment_dialog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/fragment_dialog"
+            android:onClick="onButtonClick"
+            />
+        </LinearLayout>
+
+
+
     <FrameLayout
         android:id="@+id/fragment_container_id"
         android:layout_width="match_parent"

@@ -1,10 +1,14 @@
  package ru.ivadimn.fragmentsapp;
 
+import android.content.DialogInterface;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
  public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +48,12 @@ import android.widget.Button;
             case R.id.btn_three:
                 showFragment(btn.getText().toString(), R.color.brown);
                 return;
+            case R.id.btn_alert_dilaog:
+                showAlertDialog();
+                return;
+            case R.id.btn_fragment_dialog:
+                showFragmentDialog();
+                return;
 
             default: return;
 
@@ -52,10 +62,39 @@ import android.widget.Button;
 
     public void showFragment(String text, int color) {
         FragmentManager fm = getSupportFragmentManager();
-        SampleFragment fragment = SampleFragment.newInstance(text, color);
-        fm.beginTransaction()
-            .replace(R.id.fragment_container_id, fragment)
-            .commit();
+        Fragment fragment = fm.findFragmentByTag(text);
+        if (fragment == null) {
+            fragment = SampleFragment.newInstance(text, color);
+            fm.beginTransaction()
+                    .replace(R.id.fragment_container_id, fragment, text)
+                    .commit();
+        }
+    }
+
+    public void showAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Answer the question")
+                .setMessage("Is London the capital of Greate Britain?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "Your answer is right",
+                                Toast.LENGTH_LONG).show();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "Your answer is not right",
+                                Toast.LENGTH_LONG).show();
+                    }
+                })
+                .show();
+
+    }
+
+    public void showFragmentDialog() {
+        DialogLogin.showDialog(getSupportFragmentManager(), "Anything");
     }
 
 }
