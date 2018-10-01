@@ -118,6 +118,7 @@ import android.widget.Toast;
 
      private void getUserInfo() {
          SharedPreferences prefs = getSharedPreferences(PREF, MODE_PRIVATE);
+         prefs.edit().clear().commit();
          mLogin = prefs.getString(LOGIN, "");
          mPassword = prefs.getString(PASSWORD, "");
      }
