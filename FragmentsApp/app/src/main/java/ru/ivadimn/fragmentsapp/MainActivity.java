@@ -1,6 +1,7 @@
  package ru.ivadimn.fragmentsapp;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
@@ -13,9 +14,16 @@ import android.widget.Toast;
  public class MainActivity extends AppCompatActivity implements DialogLogin.DialogCallback {
 
     public static final String TAG = "FrgamentsApp.MainActivity";
+    private static final String PREF = "ru.ivadimn.FragmentsApp";
+    private static final String LOGIN = "LOGIN";
+    private static final String PASSWORD = "PASSWORD";
+
     private Button mButton1;
     private Button mButton2;
     private Button mButton3;
+
+    private String mLogin;
+    private String mPassword;
 
 
     @Override
@@ -26,6 +34,8 @@ import android.widget.Toast;
         mButton1 = findViewById(R.id.btn_one);
         mButton2 = findViewById(R.id.btn_two);
         mButton3 = findViewById(R.id.btn_three);
+
+        getUserInfo();
 
     }
 
@@ -94,12 +104,30 @@ import android.widget.Toast;
     }
 
     public void showFragmentDialog() {
-        DialogLogin.showDialog(getSupportFragmentManager(), "Anything");
+        DialogLogin.showDialog(getSupportFragmentManager(), mLogin);
     }
 
      @Override
      public void setUserInfo(String login, String password) {
          Toast.makeText(this, login + " " + password, Toast.LENGTH_LONG).show();
+         mLogin = login;
+         mPassword = password;
+         saveUserInfo();
         return;
+     }
+
+     private void getUserInfo() {
+         SharedPreferences prefs = getSharedPreferences(PREF, MODE_PRIVATE);
+         mLogin = prefs.getString(LOGIN, "");
+         mPassword = prefs.getString(PASSWORD, "");
+     }
+
+     private void saveUserInfo() {
+         SharedPreferences prefs = getSharedPreferences(PREF, MODE_PRIVATE);
+         prefs.edit()
+                 .putString(LOGIN, mLogin)
+                 .putString(PASSWORD, mPassword)
+                 .commit();
+
      }
  }
