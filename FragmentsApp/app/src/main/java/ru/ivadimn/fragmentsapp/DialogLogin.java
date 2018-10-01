@@ -1,6 +1,8 @@
 package ru.ivadimn.fragmentsapp;
 
 import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,12 +22,26 @@ public class DialogLogin extends DialogFragment {
 
     private String mLoginName;
 
+    public static interface DialogCallback {
+        public void setUserInfo(String login, String password);
+    }
+
+    private DialogCallback mGetResult;
+
     public static void showDialog(FragmentManager manager, String login) {
         DialogLogin dialog = new DialogLogin();
         Bundle bundle = new Bundle();
         bundle.putString(LOGIN_NAME, login);
         dialog.setArguments(bundle);
         dialog.show(manager, TAG);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if(context instanceof DialogCallback) {
+            mGetResult = (DialogCallback) context;
+        }
     }
 
     @Override
@@ -53,7 +69,12 @@ public class DialogLogin extends DialogFragment {
 
         builder.setTitle("Input login and password")
         .setView(inflate)
-        .setPositiveButton("Ok", null)
+        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                mGetResult.setUserInfo(mLogin.getText().toString(), mPassword.getText().toString());
+            }
+        })
         .setNegativeButton("Cancel", null);
 
 

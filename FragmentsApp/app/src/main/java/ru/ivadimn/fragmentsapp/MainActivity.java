@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
- public class MainActivity extends AppCompatActivity {
+ public class MainActivity extends AppCompatActivity implements DialogLogin.DialogCallback {
 
     public static final String TAG = "FrgamentsApp.MainActivity";
     private Button mButton1;
@@ -97,4 +97,9 @@ import android.widget.Toast;
         DialogLogin.showDialog(getSupportFragmentManager(), "Anything");
     }
 
-}
+     @Override
+     public void setUserInfo(String login, String password) {
+         Toast.makeText(this, login + " " + password, Toast.LENGTH_LONG).show();
+        return;
+     }
+ }
