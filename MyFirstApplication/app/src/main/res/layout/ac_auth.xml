@@ -17,9 +17,9 @@
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:hint="@string/login_password"
+        android:layout_marginLeft="@dimen/view_margin_small"
+        android:layout_marginRight="@dimen/view_margin_small"
+        android:hint="@string/password"
         />
 
     <LinearLayout
@@ -31,16 +31,18 @@
             android:id="@+id/buttonEnter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="5"
             android:text="@string/login_enter"
+            android:layout_marginLeft="@dimen/view_margin_small"
             />
 
         <Button
             android:id="@+id/buttonRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="4"
             android:text="@string/login_register"
+            android:layout_marginRight="@dimen/view_margin_small"
             />
 
     </LinearLayout>
