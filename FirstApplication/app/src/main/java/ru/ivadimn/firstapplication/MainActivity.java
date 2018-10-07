@@ -1,5 +1,6 @@
 package ru.ivadimn.firstapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,13 +16,15 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener mOnEnterClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            showInputText(mInput.getText().toString());
-            mInput.setText("");
+            showSecondActivity(mInput.getText().toString());
         }
     };
 
-    private void showInputText(String text) {
-        Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+
+    private void showSecondActivity(String text) {
+        Intent secondActivityIntent = new Intent(this, SecondActivity.class);
+        secondActivityIntent.putExtra(SecondActivity.TEXT_KEY, text);
+        startActivity(secondActivityIntent);
     }
 
     @Override

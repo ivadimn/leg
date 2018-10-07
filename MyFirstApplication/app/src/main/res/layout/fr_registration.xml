@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/reg_login_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_margin_small"
+        android:layout_marginLeft="@dimen/view_margin_large"
+        android:layout_marginRight="@dimen/view_margin_large"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        />
+
+    <EditText
+        android:id="@+id/reg_password_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_margin_small"
+        android:layout_marginLeft="@dimen/view_margin_large"
+        android:layout_marginRight="@dimen/view_margin_large"
+        android:hint="@string/input_password"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:id="@+id/reg_password_again_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_margin_small"
+        android:layout_marginLeft="@dimen/view_margin_large"
+        android:layout_marginRight="@dimen/view_margin_large"
+        android:hint="@string/input_password_again"
+        android:inputType="textPassword"
+        />
+
+    <Button
+        android:id="@+id/btn_registration_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/view_margin_large"
+        android:text="@string/login_register"
+        />
+
+
+
+</LinearLayout>

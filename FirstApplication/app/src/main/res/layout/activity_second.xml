@@ -4,25 +4,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-    <EditText
-        android:id="@+id/input_text_id"
+
+    <TextView
+        android:id="@+id/show_text_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/view_margin"
-        android:layout_marginRight="@dimen/view_margin"
-        android:hint="@string/input_hint"
+        android:layout_margin="@dimen/view_margin"
         />
-
     <Button
-        android:id="@+id/buttom_enter_id"
+        android:id="@+id/nothing_button_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/view_margin"
         android:layout_marginRight="@dimen/view_margin"
+        android:layout_marginLeft="@dimen/view_margin"
         android:textAllCaps="false"
-        android:text="@string/button_enter"
+        android:text="@string/nothing_button"
         />
-
-
 
 </LinearLayout>

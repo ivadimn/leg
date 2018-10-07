@@ -6,5 +6,7 @@
     <string name="login_register">Зарегистрироваться</string>
     <string name="login_input_error">Ошибка ввода данных</string>
     <string name="email">E-mail</string>
+    <string name="input_password">Введите пароль</string>
+    <string name="input_password_again">Введите пароль ещё раз</string>
 
 </resources>
