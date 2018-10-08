@@ -55,7 +55,9 @@ public class AuthFragment extends Fragment {
     private View.OnClickListener mOnRegisterClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            showMessage(R.string.login_input_error);
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container_id, RegistrationFragment.newInstance())
+                    .commit();
         }
     };
 

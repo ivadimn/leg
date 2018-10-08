@@ -12,19 +12,19 @@ public class User implements Serializable {
         this.mPassword = mPassword;
     }
 
-    public String getmLogin() {
+    public String getLogin() {
         return mLogin;
     }
 
-    public void setmLogin(String mLogin) {
+    public void setLogin(String mLogin) {
         this.mLogin = mLogin;
     }
 
-    public String getmPassword() {
+    public String getPassword() {
         return mPassword;
     }
 
-    public void setmPassword(String mPassword) {
+    public void setPassword(String mPassword) {
         this.mPassword = mPassword;
     }
 }

@@ -8,5 +8,7 @@
     <string name="email">E-mail</string>
     <string name="input_password">Введите пароль</string>
     <string name="input_password_again">Введите пароль ещё раз</string>
+    <string name="login_register_error">Login уже занят!</string>
+    <string name="login_register_success">Успешно!</string>
 
 </resources>

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.widget.AppCompatImageView;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.ViewAnimator;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -35,8 +34,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         User user = (User) bundle.get(USER_KEY);
-        mLogin.setText(user.getmLogin());
-        mPassword.setText(user.getmPassword());
+        mLogin.setText(user.getLogin());
+        mPassword.setText(user.getPassword());
 
         mPhoto.setOnClickListener(mPhotoClickListener);
     }
