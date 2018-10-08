@@ -10,5 +10,7 @@
     <string name="input_password_again">Введите пароль ещё раз</string>
     <string name="login_register_error">Login уже занят!</string>
     <string name="login_register_success">Успешно!</string>
+    <string name="login_error">Ошибка логина. Неверный логин или пароль.</string>
+    <string name="logout">Логаут</string>
 
 </resources>

@@ -24,6 +24,7 @@ public class AuthFragment extends Fragment {
     private EditText mPassword;
     private Button mEnter;
     private Button mRegister;
+    private SharedPreferencesHelper mSharedPreferencesHelper;
 
 
     public static AuthFragment newInstance() {
@@ -38,18 +39,29 @@ public class AuthFragment extends Fragment {
     private View.OnClickListener mOnEnterClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Log.d(TAG, "mOnEnterClickListener.onClick");
-            if (isEmailValid() && isPasswordValid()) {
-                Intent startPprofileIntent = new Intent(getActivity(), ProfileActivity.class);
-                startPprofileIntent.putExtra(ProfileActivity.USER_KEY,
-                        new User(mLogin.getText().toString(), mPassword.getText().toString()));
+            boolean isLoginSuccess = false;
+            for (User u : mSharedPreferencesHelper.getUsers()) {
+                if (u.getLogin().equalsIgnoreCase(mLogin.getText().toString())
+                        && u.getPassword().equals(mPassword.getText().toString())) {
+                    isLoginSuccess = true;
+                    if (isEmailValid() && isPasswordValid()) {
+                        Intent startPprofileIntent = new Intent(getActivity(), ProfileActivity.class);
+                        startPprofileIntent.putExtra(ProfileActivity.USER_KEY,
+                                new User(mLogin.getText().toString(), mPassword.getText().toString()));
 
-                startActivity(startPprofileIntent);
+                        startActivity(startPprofileIntent);
+                        getActivity().finish();
+                    } else {
+                        showMessage(R.string.login_input_error);
+                    }
+                    break;
+                }
             }
-            else {
-                showMessage(R.string.login_input_error);
+            if (!isLoginSuccess) {
+                showMessage(R.string.login_error);
             }
         }
+
     };
 
     private View.OnClickListener mOnRegisterClickListener = new View.OnClickListener() {
@@ -57,6 +69,7 @@ public class AuthFragment extends Fragment {
         public void onClick(View view) {
             getFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container_id, RegistrationFragment.newInstance())
+                    .addToBackStack(RegistrationFragment.class.getName())
                     .commit();
         }
     };
@@ -81,6 +94,7 @@ public class AuthFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fr_auth, container, false);
 
+        mSharedPreferencesHelper = new SharedPreferencesHelper(getActivity());
         mLogin = view.findViewById(R.id.etLogin);
         mPassword = view.findViewById(R.id.etPassword);
         mEnter = view.findViewById(R.id.buttonEnter);

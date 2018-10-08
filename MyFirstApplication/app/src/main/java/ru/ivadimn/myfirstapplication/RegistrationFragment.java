@@ -35,8 +35,10 @@ public class RegistrationFragment extends Fragment {
                         mLogin.getText().toString(),
                         mPassword.getText().toString()
                 ));
-                if(isAdded)
+                if(isAdded) {
                     showMessage(R.string.login_register_success);
+                    getFragmentManager().popBackStack();
+                }
                 else
                     showMessage(R.string.login_register_error);
             }
