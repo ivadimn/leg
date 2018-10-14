@@ -52,17 +52,17 @@ public class SharedPreferencesHelper {
         return successLogins;
     }
 
-    public boolean login(User user) {
+    public User login(String login, String password ) {
         List<User> users = getUsers();
         for (User u : users) {
-            if (user.getLogin().equalsIgnoreCase(u.getLogin())
-                    && user.getPassword().equals(u.getPassword())) {
+            if (login.equalsIgnoreCase(u.getLogin())
+                    && password.equals(u.getPassword())) {
                 u.setHasSuccessLogin(true);
                 mSharedPreferences.edit().putString(USERS_KEY, mGson.toJson(users, USERS_TYPE)).commit();
-                return true;
+                return u;
             }
 
         }
-        return false;
+        return null;
     }
 }

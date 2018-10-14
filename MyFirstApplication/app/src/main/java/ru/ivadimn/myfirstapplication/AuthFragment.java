@@ -45,13 +45,12 @@ public class AuthFragment extends Fragment {
         @Override
         public void onClick(View view) {
             if (isEmailValid() && isPasswordValid()) {
-                if (mSharedPreferencesHelper.login(new User(
+                User user = mSharedPreferencesHelper.login(
                         mLogin.getText().toString(),
-                        mPassword.getText().toString()))) {
+                        mPassword.getText().toString());
+                if (user != null) {
                     Intent startPprofileIntent = new Intent(getActivity(), ProfileActivity.class);
-                    startPprofileIntent.putExtra(ProfileActivity.USER_KEY,
-                            new User(mLogin.getText().toString(), mPassword.getText().toString()));
-
+                    startPprofileIntent.putExtra(ProfileActivity.USER_KEY, user);
                     startActivity(startPprofileIntent);
                     getActivity().finish();
                 }
