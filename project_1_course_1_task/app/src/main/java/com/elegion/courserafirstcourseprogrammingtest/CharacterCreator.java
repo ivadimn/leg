@@ -175,6 +175,23 @@ public class CharacterCreator extends Observable  implements Serializable{
         *   если количество доступных очков равно 0
         *       то мы не можем увеличить атрибут, ничего не происходит        *
         * */
+        Attribute  attribute = Attribute.values()[position];
+        int attributeValue = mAttributesMap.get(attribute.name());
+        if (updateTo > 0) {
+            if (mAvailablePoints > 0) {
+                attributeValue++;
+                mAvailablePoints--;
+            }
+        }
+        else if (updateTo < 0) {
+            if (attributeValue > 1) {
+                attributeValue--;
+                mAvailablePoints++;
+            }
+        }
+        mAttributesMap.put(attribute.name(), attributeValue);
+        setChanged();
+        notifyObservers();
 
     }
 

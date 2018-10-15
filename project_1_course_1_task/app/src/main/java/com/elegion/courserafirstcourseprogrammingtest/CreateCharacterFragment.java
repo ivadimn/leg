@@ -169,18 +169,18 @@ public class CreateCharacterFragment extends Fragment implements Observer {
 
         // TODO: 11.12.2017  раскоментируйте это после того, как доделаете логику CharacterCreator.updateAttributeValue();
 
-//        for (int i = 0, size = mParamControlButtons.length; i < size; i++) {
-//            int rowCount = size / 2;
-//            final int row = i < rowCount ? i : i - rowCount;
-//            final int action = i < rowCount ? -1 : 1;
-//
-//            mParamControlButtons[i].setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    mCreator.updateAttributeValue(row, action);
-//                }
-//            });
-//        }
+        for (int i = 0, size = mParamControlButtons.length; i < size; i++) {
+            int rowCount = size / 2;
+            final int row = i < rowCount ? i : i - rowCount;
+            final int action = i < rowCount ? -1 : 1;
+
+            mParamControlButtons[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mCreator.updateAttributeValue(row, action);
+                }
+            });
+        }
     }
 
     private void addPerks() {
