@@ -16,7 +16,11 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener mOnEnterClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            showSecondActivity(mInput.getText().toString());
+            String text =  mInput.getText().toString();
+            if (!text.isEmpty()) {
+                Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
+                showSecondActivity(text);
+            }
         }
     };
 

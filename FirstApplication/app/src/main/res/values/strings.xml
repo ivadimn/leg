@@ -2,6 +2,6 @@
     <string name="app_name">FirstApplication</string>
     <string name="input_hint">Введите текст</string>
     <string name="button_enter">Ввод</string>
-    <string name="nothing_button">Ничего не делаем</string>
+    <string name="google_button">Google.com</string>
 
 </resources>

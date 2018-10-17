@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/activity_background"
     android:orientation="vertical"
     >
 
@@ -12,13 +13,13 @@
         android:layout_margin="@dimen/view_margin"
         />
     <Button
-        android:id="@+id/nothing_button_id"
+        android:id="@+id/google_button_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/view_margin"
         android:layout_marginLeft="@dimen/view_margin"
         android:textAllCaps="false"
-        android:text="@string/nothing_button"
+        android:text="@string/google_button"
         />
 
 </LinearLayout>
