@@ -3,4 +3,12 @@
     <string name="menu_item_settings">Настройки</string>
     <string name="menu_item_search">Поиск</string>
     <string name="menu_item_exit">Выход</string>
+    <string name="main_fragment">Главный фрагмент</string>
+
+    <string name="search_button">Найти...</string>
+    <string name="search_hint">Введите текст для поиска</string>
+    <string name="select_search_system">Выберите поисковую систему</string>
+    <string name="google">Google</string>
+    <string name="mail">Mail</string>
+    <string name="bing">Bing</string>
 </resources>
