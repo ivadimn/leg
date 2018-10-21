@@ -53,7 +53,7 @@ public class CharacterCreator extends Observable  implements Serializable{
         String[] spec = new String[Specialization.values().length];
         int index = 0;
         for (Specialization s : Specialization.values()) {
-            spec[index++] = s.toString().substring(0, 1) + s.toString().substring(1).toLowerCase();
+            spec[index++] = s.name().substring(0, 1) + s.name().substring(1).toLowerCase();
         }
         return spec;
 
@@ -85,7 +85,7 @@ public class CharacterCreator extends Observable  implements Serializable{
         String[] races = new String[Race.values().length];
         int index = 0;
         for (Race r : Race.values()) {
-            races[index++] = r.toString().substring(0, 1) + r.toString().substring(1).toLowerCase();
+            races[index++] = r.name().substring(0, 1) + r.name().substring(1).toLowerCase();
         }
         return races;
     }
@@ -117,7 +117,7 @@ public class CharacterCreator extends Observable  implements Serializable{
         String[] attrs = new String[Attribute.values().length];
         int index = 0;
         for (Attribute a : Attribute.values()) {
-            attrs[index++] = a.toString().substring(0, 1) + a.toString().substring(1).toLowerCase();
+            attrs[index++] = a.name().substring(0, 1) + a.name().substring(1).toLowerCase();
         }
         return attrs;
     }
@@ -133,7 +133,7 @@ public class CharacterCreator extends Observable  implements Serializable{
         String[] perks = new String[Perk.values().length];
         int index = 0;
         for (Perk p : Perk.values()) {
-            perks[index++] = p.toString().substring(0, 1) + p.toString().substring(1).toLowerCase();
+            perks[index++] = p.name().substring(0, 1) + p.name().substring(1).toLowerCase();
         }
 
         return perks;
