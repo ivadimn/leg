@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 showFragment(SearchFragment.newInstance());
                 break;
             case R.id.mi_exit_id:
+                showMessage(R.string.menu_item_exit);
                 exit();
                 break;
             default: break;
