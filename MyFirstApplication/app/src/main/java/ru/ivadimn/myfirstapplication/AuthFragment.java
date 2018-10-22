@@ -64,6 +64,12 @@ public class AuthFragment extends Fragment {
         }
     };
 
+    private View.OnClickListener mListener = view ->
+            getFragmentManager().beginTransaction()
+            .replace(R.id.fragment_container_id, RegistrationFragment.newInstance())
+            .addToBackStack(RegistrationFragment.class.getName())
+            .commit();
+
     private View.OnClickListener mOnRegisterClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
