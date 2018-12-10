@@ -12,9 +12,12 @@ public class MainClass {
         Lock lock = new ReentrantLock();
         for (int i = 0; i < mFloors; i++) {
             Future<Integer> future = executorService.submit(new CountCallable());
+<<<<<<< ef4366c76660c20f4319d3d9f7c53258e59c6465
             //while(!future.isDone()) {
             //    TimeUnit.MILLISECONDS.sleep(100);
             //}
+=======
+>>>>>>> update
             try {
                 lock.lock();
                 mCount += future.get();
