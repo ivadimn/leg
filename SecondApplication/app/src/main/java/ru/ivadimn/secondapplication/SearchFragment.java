@@ -25,15 +25,12 @@ public class SearchFragment extends Fragment {
     private EditText mText;
     private Button mSearch;
 
-    private View.OnClickListener mSearchClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            String text = mText.getText().toString();
-            if (!text.isEmpty()) {
-                search(text);
-            }
-        }
-    };
+    private View.OnClickListener mSearchClickListener = (view) ->
+    {String text = mText.getText().toString();
+        if (!text.isEmpty()) {
+            search(text);
+        }};
+
 
     public static SearchFragment newInstance() {
         return new SearchFragment();
