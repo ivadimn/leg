@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AuthPart</string>
+    <string name="login_hint">Логин</string>
+    <string name="password_hint">Пароль</string>
+    <string name="button_enter">Войти</string>
+    <string name="button_register">Зарегистрироваться</string>
+</resources>
