@@ -4,4 +4,11 @@
     <string name="password_hint">Пароль</string>
     <string name="button_enter">Войти</string>
     <string name="button_register">Зарегистрироваться</string>
+    <string name="login_input_error">Ошибка ввода данных</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="input_password">Введите пароль:</string>
+    <string name="input_password_again">Введите пароль ещё раз:</string>
+    <string name="login_register_success">Регистьрация прошла успешно</string>
+    <string name="login_register_error">Такой пользователь уже есть</string>
 </resources>
