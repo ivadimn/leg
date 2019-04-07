@@ -6,6 +6,15 @@ public class User implements Serializable {
 
     private String mLogin;
     private String mPassword;
+    private boolean mHasSuccessLogin;
+
+    public boolean isHasSuccessLogin() {
+        return mHasSuccessLogin;
+    }
+
+    public void setHasSuccessLogin(boolean mHasSuccessLogin) {
+        this.mHasSuccessLogin = mHasSuccessLogin;
+    }
 
     public User(String mLogin, String mPassword) {
         this.mLogin = mLogin;

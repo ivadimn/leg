@@ -43,4 +43,29 @@ public class SharedPreferencesHelper {
                 .commit();
         return true;
     }
+
+    public List<String> getSuccessLogins() {
+        List<String> successLogins = new ArrayList<>();
+        List<User> users = getUsers();
+        for ( User user: users ) {
+            if (user.isHasSuccessLogin()) {
+                successLogins.add(user.getLogin());
+            }
+        }
+        return successLogins;
+    }
+
+    public boolean login(User user) {
+        List<User> users = getUsers();
+        for (User u : users) {
+            if (u.getLogin().equalsIgnoreCase(user.getLogin())
+                && u.getPassword().equalsIgnoreCase(user.getPassword())) {
+                u.setHasSuccessLogin(true);
+                mSharedPreferences.edit().putString(USERS_KEY, mGson.toJson(users, USERS_TYPE)).commit();
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

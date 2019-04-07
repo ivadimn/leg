@@ -9,6 +9,8 @@
     <string name="password">Пароль</string>
     <string name="input_password">Введите пароль:</string>
     <string name="input_password_again">Введите пароль ещё раз:</string>
-    <string name="login_register_success">Регистьрация прошла успешно</string>
+    <string name="login_register_success">Регистрация прошла успешно</string>
     <string name="login_register_error">Такой пользователь уже есть</string>
+    <string name="login_error">Ошибка логина. Неверный логин или пароль</string>
+    <string name="logout">Логаут</string>
 </resources>
