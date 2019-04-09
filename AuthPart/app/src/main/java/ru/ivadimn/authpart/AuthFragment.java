@@ -38,8 +38,9 @@ public class AuthFragment extends Fragment {
     private View.OnClickListener mOnEnterClickListener = (view) -> {
 
         if (isEmailValid() && isPasswordValid()) {
-            if (mSharedPreferencesHelper.login(
-                    new User(mLogin.getText().toString(), mPassword.getText().toString())))
+            User user = mSharedPreferencesHelper.login(mLogin.getText().toString(),
+                    mPassword.getText().toString());
+            if (user != null)
             {
                 Intent profileIntent = new Intent(getActivity(), ProfileActivity.class);
                 profileIntent.putExtra(ProfileActivity.USER_KEY,
