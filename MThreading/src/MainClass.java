@@ -3,19 +3,16 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class MainClass {
-    private static int mCount = 0;
-    private static int mFloors = 10;
-    private static int mThreads = 4;
+    private static  int mCount = 0;
+    private static final int FLOORS = 10;
+    private static final int THREAD_COUNT = 4;
+    private static final int  PEOPLE_ON_FLOOR= 100;
 
     public static void main(String[] args) {
-        ExecutorService executorService = Executors.newFixedThreadPool(mThreads);
+        ExecutorService executorService = Executors.newFixedThreadPool(THREAD_COUNT);
         Lock lock = new ReentrantLock();
-        for (int i = 0; i < mFloors; i++) {
+        for (int i = 0; i < FLOORS; i++) {
             Future<Integer> future = executorService.submit(new CountCallable());
-
-            //while(!future.isDone()) {
-            //    TimeUnit.MILLISECONDS.sleep(100);
-            //}
 
             try {
                 lock.lock();
@@ -37,7 +34,7 @@ public class MainClass {
         @Override
         public Integer call() throws Exception {
             Integer count = 0;
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < PEOPLE_ON_FLOOR; i++) {
                 count++;
             }
             System.out.println(Thread.currentThread().getName());
