@@ -10,9 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
+            android:name=".WombleService"
+            android:exported="false"></service>
+
+        <activity android:name=".TempActivity" />
+
+        <service
             android:name=".CountService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <activity android:name=".MainActivity">
             <intent-filter>

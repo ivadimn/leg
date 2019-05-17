@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class CountService extends Service {
     public static final String TAG = "_____COUNT_SERVICE";
+    public static final String TIME = "TIME";
 
     private ScheduledExecutorService scheduledTask;
 
@@ -18,7 +19,11 @@ public class CountService extends Service {
     }
 
     private Runnable task = () -> {
+        long currentTime = System.currentTimeMillis();
         Log.d(TAG, "run: " + System.currentTimeMillis());
+        Intent intent = new Intent(SimpleReciver.SIMPLE_ACTION);
+        intent.putExtra(TIME, currentTime);
+        sendBroadcast(intent);
     };
     @Override
     public IBinder onBind(Intent intent) {
@@ -34,7 +39,7 @@ public class CountService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "Service onStartCommand");
-        scheduledTask.scheduleAtFixedRate(task, 1000, 1000, TimeUnit.MILLISECONDS);
+        scheduledTask.scheduleAtFixedRate(task, 1000, 4000, TimeUnit.MILLISECONDS);
         return START_STICKY;
     }
 
