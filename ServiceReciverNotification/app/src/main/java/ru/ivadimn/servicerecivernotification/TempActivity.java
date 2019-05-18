@@ -12,7 +12,7 @@ public class TempActivity extends AppCompatActivity {
         setContentView(R.layout.activity_temp);
 
         TextView tvTime = findViewById(R.id.tv_time);
-        tvTime.setText("Currenttime is " + getIntent().getLongExtra(CountService.TIME, 0L));
+        tvTime.setText("It is from notification " + getIntent().getStringExtra(CountService.TIME));
 
     }
 }
