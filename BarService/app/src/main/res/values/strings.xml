@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BarService</string>
+    <string name="reduce">Уменьшить</string>
+</resources>
