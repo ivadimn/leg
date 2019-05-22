@@ -60,6 +60,8 @@ public class ProcessService extends Service {
             processValue += value;
             if (processValue > MAX_VALUE) {
                 processValue = 0;
+                Intent finishIntent = new Intent(MainActivity.ACTION_FINISH_PROGRESS);
+                sendBroadcast(finishIntent);
             }
         }
     }

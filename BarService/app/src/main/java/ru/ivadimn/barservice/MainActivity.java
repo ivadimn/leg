@@ -1,8 +1,10 @@
 package ru.ivadimn.barservice;
 
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Handler;
 import android.os.IBinder;
@@ -11,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.Collection;
 import java.util.List;
@@ -25,10 +28,12 @@ import java.util.concurrent.TimeoutException;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String ACTION_FINISH_PROGRESS = "ACTION_FINISH_PROGRESS";
     private ProgressBar pbProcess;
     private Button btnReduce;
     private boolean bound = false;
     private ProcessService processService;
+    private FinishReciver finishReciver;
 
     View.OnClickListener  onReduceClickListener = (view) ->  {
         if(processService != null) {
@@ -59,12 +64,15 @@ public class MainActivity extends AppCompatActivity {
         pbProcess = findViewById(R.id.pb_process);
         btnReduce = findViewById(R.id.btn_reduce);
         btnReduce.setOnClickListener(onReduceClickListener);
+        finishReciver = new FinishReciver();
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        IntentFilter filter = new IntentFilter(ACTION_FINISH_PROGRESS);
+        registerReceiver(finishReciver, filter);
         Intent intent = new Intent(this, ProcessService.class);
         bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
         process();
@@ -77,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             unbindService(serviceConnection);
             bound = false;
         }
+        unregisterReceiver(finishReciver);
     }
 
     private void process() {
@@ -93,4 +102,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public class FinishReciver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Toast.makeText(MainActivity.this, "Process was finished", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
