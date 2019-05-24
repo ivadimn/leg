@@ -23,8 +23,7 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     public static final int REQUEST_CODE_REQUEST_PERMISSION_INTERNET = 4455;
-    private String url = "https://raskraska1.com/detskie-raskraski/raskraska-liczo-devushki" +
-            "/_assets_images_resources_827_raskraska-lico-devushki18.jpg";
+    private String url = "http://ivadimn.ru/images/calc.jpeg";
     private Button btnLoad;
 
     private View.OnClickListener onLoad = (view) -> {
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 return bmp;
             }
             catch(Exception e) {
-                Log.d("LOAD_IMAGE", "Return null");
+                Log.d("LOAD_IMAGE", e.getMessage());
                 return null;
             }
         }
