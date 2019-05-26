@@ -1,5 +1,8 @@
 package ru.ivadimn.hamer2;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -12,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.BitSet;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         mProgressBar = findViewById(R.id.pb_transform);
         mProgressBar.setMax(100);
         mImage = findViewById(R.id.img_transform);
+        mImage.getDrawable();
+        BitmapDrawable drawable = (BitmapDrawable) mImage.getDrawable();
+
         mBtnStart = findViewById(R.id.btn_transfer);
         mTvRandom = findViewById(R.id.tv_random);
         mBtnStart.setOnClickListener( view -> mBackgroundThread.doWork());
