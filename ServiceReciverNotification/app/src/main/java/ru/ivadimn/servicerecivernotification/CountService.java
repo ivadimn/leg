@@ -20,6 +20,8 @@ public class CountService extends Service {
     public static final String TAG = "_____COUNT_SERVICE";
     public static final String TIME = "TIME";
 
+
+
     private ScheduledExecutorService scheduledTask;
     private NotificationManager mManager;
     private NotificationCompat.Builder mBuilder;
